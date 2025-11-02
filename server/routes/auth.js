@@ -10,11 +10,14 @@ configurePassport();
 
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
+authRouter.get('/me',protect, (req, res) => {
+  res.json({ user: req.user });
+});
 
-// authRouter.get('/:provider', (req, res, next) => {
-//   const { provider } = req.params;
-//   passport.authenticate(provider, { scope: getScope(provider) })(req, res, next);
-// });
+authRouter.get('/:provider', (req, res, next) => {
+  const { provider } = req.params;
+  passport.authenticate(provider, { scope: getScope(provider) })(req, res, next);
+});
 
 const getScope = (provider) => {
   if (provider === 'google') return ['profile', 'email'];
@@ -52,9 +55,6 @@ authRouter.get('/:provider/callback',
 );
 
 
-authRouter.get('/me',protect, (req, res) => {
-  res.json({ user: req.user });
-});
 
 
 authRouter.get('/logout', (req, res) => {
