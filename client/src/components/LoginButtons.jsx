@@ -1,7 +1,8 @@
 
 import { Button } from '@/components/ui/button';
 import { FcGoogle } from 'react-icons/fc';
-import { FaGithub, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaFacebookF } from 'react-icons/fa';
+import { Chrome, Mail } from 'lucide-react';
 
 export function LoginButtons() {
   const login = (provider) => {
@@ -9,16 +10,24 @@ export function LoginButtons() {
   };
 
   return (
-    <div className="space-y-4">
-      <Button onClick={() => login('google')} className="w-full" size="lg">
-        <FcGoogle className="mr-2 h-5 w-5" /> Continue with Google
+    <div className="space-y-3 w-full max-w-md">
+      <Button 
+        onClick={() => login('google')} 
+        className="w-full py-6 rounded-xl bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 transition-colors duration-200 flex items-center justify-center gap-3 shadow-sm"
+      >
+        <FcGoogle className="h-5 w-5" /> 
+        <span className="font-medium">Continue with Google</span>
       </Button>
-      <Button onClick={() => login('github')} variant="outline" className="w-full" size="lg">
-        <FaGithub className="mr-2 h-5 w-5" /> Continue with GitHub
+      
+      <Button 
+        onClick={() => login('github')} 
+        variant="outline" 
+        className="w-full py-6 rounded-xl border-gray-300 hover:bg-gray-50 text-gray-800 transition-colors duration-200 flex items-center justify-center gap-3"
+      >
+        <FaGithub className="h-5 w-5 text-gray-600" /> 
+        <span className="font-medium">Continue with GitHub</span>
       </Button>
-      <Button onClick={() => login('facebook')} variant="outline" className="w-full" size="lg">
-        <FaFacebook className="mr-2 h-5 w-5 text-blue-600" /> Continue with Facebook
-      </Button>
+      
     </div>
   );
 }

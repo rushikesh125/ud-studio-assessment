@@ -1,4 +1,4 @@
-// components/ImageGrid.js
+
 'use client';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleSelect } from '../store/searchSlice';
@@ -33,24 +33,24 @@ export function ImageGrid() {
               }`}
               onClick={() => dispatch(toggleSelect(img.id))}
             >
-              {/* Image - Using fixed dimensions since API values might be too large */}
+              
               <Image
                 src={img.url}
                 alt={img.alt || 'Search result image'}
-                width={300} // Fixed width - adjust as needed
-                height={300} // Fixed height - adjust as needed
+                width={300} 
+                height={300} 
                 className="w-full h-64 object-cover transition-transform group-hover:scale-105"
-                unoptimized // Add this if images are from external sources
+                unoptimized 
               />
 
-              {/* Selected Overlay - Using modern Tailwind v3+ syntax */}
+              
               {isSelected && (
                 <div className="absolute inset-0 bg-blue-500/20 flex items-center justify-center">
                   <Check className="h-10 w-10 text-white" />
                 </div>
               )}
 
-              {/* Hover Overlay (only when NOT selected) */}
+              
               {!isSelected && (
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all flex items-center justify-center">
                   <Checkbox
@@ -60,7 +60,7 @@ export function ImageGrid() {
                 </div>
               )}
 
-              {/* Always Visible Checkbox in Corner (when selected) */}
+             
               {isSelected && (
                 <div className="absolute top-2 right-2">
                   <Checkbox
