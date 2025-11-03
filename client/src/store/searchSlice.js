@@ -17,7 +17,7 @@ export const searchImages = createAsyncThunk(
 );
 
 export const fetchTopSearches = createAsyncThunk('search/top', async () => {
-  const res = await api.get('/top-searches');
+  const res = await api.get('/search/top-searches');
   return res.data;
 });
 

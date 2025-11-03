@@ -13,6 +13,11 @@ const FRONTEND_URL = process.env.FRONTEND_URL;
 authRouter.get('/me',protect, (req, res) => {
   res.json({ user: req.user });
 });
+authRouter.get('/logout', (req, res) => {
+  res.clearCookie('jwt');
+  res.json({ message: 'Logged out' });
+});
+
 
 authRouter.get('/:provider', (req, res, next) => {
   const { provider } = req.params;
@@ -57,9 +62,5 @@ authRouter.get('/:provider/callback',
 
 
 
-authRouter.get('/logout', (req, res) => {
-  res.clearCookie('jwt');
-  res.json({ message: 'Logged out' });
-});
 
 export default authRouter;
