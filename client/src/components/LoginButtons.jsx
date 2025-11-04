@@ -6,7 +6,7 @@ import { Chrome, Mail } from 'lucide-react';
 
 export function LoginButtons() {
   const login = (provider) => {
-    window.location.href = `${NEXT_PUBLIC_BACKEND_API_URL}/auth/${provider}`;
+    window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/auth/${provider}`;
   };
 
   return (
